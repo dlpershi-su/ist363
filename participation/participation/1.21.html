@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participation</title>
+    <style>
+        .circle {
+            width: 100px; 
+            background-color: lightblue; 
+            border-radius: 50px; 
+            margin: 0 auto;
+            align-items: center; 
+            color: white; 
+            transition: 1s;
+            padding: 50px 0;
+            line-height: 0px;
+            text-align: center;
+        }
+        .circle:hover {
+            transform: rotate(360deg);
+            background-color: blue;
+        }
+        img{
+            position: absolute;
+            top: 500px;
+            left: -500px;
+            animation-name: otto;
+            animation-duration: 5s;
+            animation-fill-mode: backwards;
+            animation-iteration-count: infinite;
+        }
+        @keyframes otto {
+            from {transform: translateX(0)}
+            to {transform: translate(2500px);}
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="circle">Go Orange!</div>
+    <img src="https://laferger.github.io/ist363/images/otto-on-skateboard.png" alt="Otto on a skateboard">
+</body>
+</html>
