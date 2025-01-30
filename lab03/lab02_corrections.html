@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Dara Pershing Lab 01</title>
+    <style>
+        body {background-color: #e38e49;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+        .container {background-color: #d4ebf8;
+        padding: 20px;
+        border-radius: 10px;
+        margin:20px;
+        padding: 1% 10%;
+    }
+    
+    h1 {
+  color: #0a3981;
+  position: relative;
+  width:20%;
+  animation: 
+    down 2s ease-in-out forwards, 
+    rotate 2s ease-in-out forwards 2s, 
+    pulse 2s ease-in-out forwards 4s;
+}
+
+@keyframes down {
+  0% {
+    transform: translateY(-500px);
+  }
+  100% {
+    transform: translateY(0px); 
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: translateY(0px) rotateY(0);
+  }
+  50% {
+    transform: translateY(0px) rotateY(180deg);
+  }
+  100% {
+    transform: translateY(0px) rotateY(0); 
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translateY(0px) scale(1); 
+  }
+  50% {
+    transform: translateY(0px) scale(2); 
+  }
+}
+
+
+
+    strong {color:#e38e49}
+    .image {
+        display:flex;
+        flex-wrap: wrap;
+    }
+    .image div {
+        flex: 1;
+    }
+    img{
+        width:100%;
+        min-width: 250px;
+    }
+   
+    </style>
+</head>
+<body>
+<main class="container">
+  
+    <h1>Dara Pershing</h1>
+    <p>Something <strong>personal</strong> is that I have moved seven times. 
+        <strong>Professionally</strong>, I am dual majoring in Information Management & Technology and Visual Communications.
+        Something <strong>peculiar</strong> is I am a huge musical theater fan. 
+    </p>
+    <div class="image">
+      <div>
+          <img src="../photos/otto.jpeg" alt="Otto & Dara">
+      </div>
+      <div>
+          <img src="../photos/theater.jpeg" alt="Dara in costume">
+      </div>
+  </div> 
+  
+  <div class="image"> 
+      <div>
+          <img src="../photos/redpanda.jpeg" alt="Red pandas">
+      </div>
+      <div>
+          <img src="../photos/dara.jpeg" alt="Dara">
+      </div>
+  </div> 
+
+</body>
+</html>
