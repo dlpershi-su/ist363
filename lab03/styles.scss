@@ -1,0 +1,306 @@
+// Reset styles
+@import 'partials/reset';
+
+// Variables
+@import 'partials/variables';
+
+//Mixins
+@import 'partials/mixins';
+
+
+// Reset Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-primary;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+
+// Header styles
+header {
+  background-color: $color-orange;
+  padding: 1rem 2rem;
+  color: #fff;
+  display: flex;
+  flex-direction: column; // Stack items vertically
+  justify-content: center;
+  align-items: center;     
+  text-align: center;
+
+  .logo {
+    font-size: 2rem;  // Adjust as needed for logo size
+    margin-bottom: 1rem;  // Add space between the logo and the navigation
+  }
+
+  nav {
+    ul {
+      @include flex-center;
+      gap: 1.5rem;
+      list-style: none;
+
+      li {
+        a {
+          color: #fff;
+          text-decoration: none;
+          transition: $transition;
+
+          &:hover {
+            color: $color-lime;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.latest-recipes {
+  padding: 2rem;
+  background-color: $color-lime;
+
+  h2 {
+    color: $color-melon;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+
+  .recipe-grid {
+    display: flex;
+    flex-wrap: wrap; // Allow wrapping for smaller screens
+    justify-content: center; // Center-align the grid items
+    gap: 1rem; // Space between grid items
+    margin: 0 auto;
+    max-width: 1200px; // Limit the grid's maximum width
+
+    @media (min-width: 768px) {
+      justify-content: space-between; // Spread items on larger screens
+    }
+  }
+
+  .recipe-card {
+    @include box-style;
+    flex: 1 1 calc(25% - 1rem); // Make items occupy 25% width with gap
+    max-width: 200px; // Prevent cards from growing too large
+    text-align: center;
+
+    img {
+      width: 100%; // Scale to fit card width
+      height: auto; // Maintain aspect ratio
+      object-fit: cover;
+      border-radius: 8px 8px 0 0; // Rounded corners for the top
+    }
+
+    h3 {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+    }
+  }
+}
+
+
+
+// Newsletter Section
+.newsletter {
+  padding: 2rem;
+  background-color: $color-mint;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  form {
+    @include flex-center;
+    gap: 1rem;
+
+    input {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      @extend .recipe-card;
+      background-color: $color-orange;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-melon;
+      }
+    }
+  }
+}
+
+.about {
+  padding: 2rem;
+  background-color: #fff;
+  text-align: center;
+  position: relative;
+
+  img {
+    width: 100%;
+  }
+
+  h2 {
+    color: $color-melon;
+    margin-bottom: 1rem;
+    position: relative; // Keep the heading above the image
+    z-index: 1;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    position: relative; // Keep the text above the image
+    z-index: 1;
+  }
+
+  button {
+    @include box-style;
+    background-color: $color-orange;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    position: relative; // Keep the button above the image
+    z-index: 1;
+
+    &:hover {
+      background-color: $color-melon;
+    }
+  }
+}
+
+
+// Older Recipes Section (Updated)
+.older-recipes {
+  padding: 2rem;
+  background-color: $color-lime;
+
+  h2 {
+    color: $color-melon;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+
+  .recipe-grid {
+    display: flex;
+    flex-wrap: wrap; // Allow wrapping for smaller screens
+    justify-content: center; // Center-align the grid items
+    gap: 1rem; // Space between grid items
+    margin: 0 auto;
+    max-width: 1200px; // Limit the grid's maximum width
+
+    @media (min-width: 768px) {
+      justify-content: space-between; // Spread items on larger screens
+    }
+  }
+
+  .recipe-card {
+    @include box-style;
+    flex: 1 1 calc(25% - 1rem); // Make items occupy 25% width with gap
+    max-width: 200px; // Prevent cards from growing too large
+    text-align: center;
+
+    img {
+      width: 100%; // Scale to fit card width
+      height: auto; // Maintain aspect ratio
+      object-fit: cover;
+      border-radius: 8px 8px 0 0; // Rounded corners for the top
+    }
+
+    h3 {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+    }
+  }
+}
+
+
+// Footer Styles
+footer {
+  padding: 1rem;
+  background-color: $color-mint;
+  color: #fff;
+  text-align: center;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 0.5rem;
+
+    &:hover {
+      color: $color-melon;
+    }
+  }
+}
+
+.latest-recipes .recipe-grid,
+.older-recipes .recipe-grid {
+  display: flex;
+  flex-wrap: wrap; // Allow wrapping for smaller screens
+  justify-content: center; // Center-align the grid items
+  gap: 1rem; // Space between grid items
+  margin: 0 auto;
+  max-width: 1200px; // Limit the grid's maximum width
+
+  @media (max-width: 768px) {
+    flex-direction: column; // Stack items vertically on small screens
+    align-items: center; // Center align the items on mobile screens
+  }
+}
+
+.latest-recipes .recipe-grid,
+.older-recipes .recipe-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: 1200px;
+
+  @media (max-width: 768px) {
+    flex-direction: column; // Stack items vertically on small screens
+    align-items: center; // Center align the items
+    transition: none; // Remove any transition
+  }
+}
+
+.latest-recipes .recipe-card,
+.older-recipes .recipe-card {
+  @include box-style;
+  max-width: 200px;
+
+  // Mobile-specific styles
+  @media (max-width: 768px) {
+    max-width: 100%; // Remove max-width constraint on mobile
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+  }
+
+  h3 {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+  }
+}
+
+
+
+

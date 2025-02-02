@@ -1,0 +1,19 @@
+// Mixin for reusable box styles
+@mixin box-style {
+  border-radius: 8px;
+  box-shadow: $box-shadow;
+  background-color: #fff;
+  padding: 1rem;
+  transition: $transition;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+// Mixin for flexbox centering
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
