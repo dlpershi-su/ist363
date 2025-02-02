@@ -72,39 +72,37 @@ header {
 
   .recipe-grid {
     display: flex;
-    flex-wrap: wrap; // Allow wrapping for smaller screens
-    justify-content: center; // Center-align the grid items
-    gap: 1rem; // Space between grid items
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 1rem; 
     margin: 0 auto;
-    max-width: 1200px; // Limit the grid's maximum width
+    max-width: 1200px; 
 
     @media (min-width: 768px) {
-      justify-content: space-between; // Spread items on larger screens
+      justify-content: space-between;
     }
   }
 
   .recipe-card {
     @include box-style;
-    flex: 1 1 calc(25% - 1rem); // Make items occupy 25% width with gap
-    max-width: 200px; // Prevent cards from growing too large
+    max-width: 200px; 
     text-align: center;
 
     img {
-      width: 100%; // Scale to fit card width
-      height: auto; // Maintain aspect ratio
+      width: 100%; 
+      height: auto; 
       object-fit: cover;
-      border-radius: 8px 8px 0 0; // Rounded corners for the top
+      border-radius: 8px 8px 0 0; 
     }
 
     h3 {
       margin-top: 0.5rem;
       font-size: 1rem;
       font-weight: bold;
-      color: #333;
+      color: $color-melon;
     }
   }
 }
-
 
 
 // Newsletter Section
@@ -154,13 +152,13 @@ header {
   h2 {
     color: $color-melon;
     margin-bottom: 1rem;
-    position: relative; // Keep the heading above the image
+    position: relative;
     z-index: 1;
   }
 
   p {
     margin-bottom: 1rem;
-    position: relative; // Keep the text above the image
+    position: relative;
     z-index: 1;
   }
 
@@ -169,8 +167,7 @@ header {
     background-color: $color-orange;
     color: #fff;
     border: none;
-    cursor: pointer;
-    position: relative; // Keep the button above the image
+    position: relative;
     z-index: 1;
 
     &:hover {
@@ -180,7 +177,7 @@ header {
 }
 
 
-// Older Recipes Section (Updated)
+// Older Recipes Section
 .older-recipes {
   padding: 2rem;
   background-color: $color-lime;
@@ -193,35 +190,34 @@ header {
 
   .recipe-grid {
     display: flex;
-    flex-wrap: wrap; // Allow wrapping for smaller screens
-    justify-content: center; // Center-align the grid items
-    gap: 1rem; // Space between grid items
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 1rem;
     margin: 0 auto;
-    max-width: 1200px; // Limit the grid's maximum width
+    max-width: 1200px; 
 
     @media (min-width: 768px) {
-      justify-content: space-between; // Spread items on larger screens
+      justify-content: space-between;
     }
   }
 
   .recipe-card {
     @include box-style;
-    flex: 1 1 calc(25% - 1rem); // Make items occupy 25% width with gap
-    max-width: 200px; // Prevent cards from growing too large
+    max-width: 200px;
     text-align: center;
 
     img {
-      width: 100%; // Scale to fit card width
-      height: auto; // Maintain aspect ratio
+      width: 100%; 
+      height: auto; 
       object-fit: cover;
-      border-radius: 8px 8px 0 0; // Rounded corners for the top
+      border-radius: 8px 8px 0 0;
     }
 
     h3 {
       margin-top: 0.5rem;
       font-size: 1rem;
       font-weight: bold;
-      color: #333;
+      color: $color-melon;
     }
   }
 }
@@ -248,15 +244,15 @@ footer {
 .latest-recipes .recipe-grid,
 .older-recipes .recipe-grid {
   display: flex;
-  flex-wrap: wrap; // Allow wrapping for smaller screens
-  justify-content: center; // Center-align the grid items
-  gap: 1rem; // Space between grid items
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 1rem; 
   margin: 0 auto;
-  max-width: 1200px; // Limit the grid's maximum width
+  max-width: 1200px; 
 
   @media (max-width: 768px) {
-    flex-direction: column; // Stack items vertically on small screens
-    align-items: center; // Center align the items on mobile screens
+    flex-direction: column; 
+    align-items: center; 
   }
 }
 
@@ -270,9 +266,9 @@ footer {
   max-width: 1200px;
 
   @media (max-width: 768px) {
-    flex-direction: column; // Stack items vertically on small screens
-    align-items: center; // Center align the items
-    transition: none; // Remove any transition
+    flex-direction: column; 
+    align-items: center; 
+    transition: none;
   }
 }
 
@@ -283,7 +279,7 @@ footer {
 
   // Mobile-specific styles
   @media (max-width: 768px) {
-    max-width: 100%; // Remove max-width constraint on mobile
+    max-width: 100%;
   }
 
   img {
@@ -297,9 +293,9 @@ footer {
     margin-top: 0.5rem;
     font-size: 1rem;
     font-weight: bold;
-    color: #333;
+    color: $color-melon;
   }
-}
+} 
 
 
 

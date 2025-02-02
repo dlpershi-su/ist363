@@ -378,7 +378,6 @@ header nav ul li a:hover {
   background-color: #fff;
   padding: 1rem;
   transition: all 0.3s ease-in-out;
-  flex: 1 1 calc(25% - 1rem);
   max-width: 200px;
   text-align: center;
 }
@@ -396,7 +395,7 @@ header nav ul li a:hover {
   margin-top: 0.5rem;
   font-size: 1rem;
   font-weight: bold;
-  color: #333;
+  color: #e2625c;
 }
 
 .newsletter {
@@ -457,7 +456,6 @@ header nav ul li a:hover {
   background-color: #e89b6a;
   color: #fff;
   border: none;
-  cursor: pointer;
   position: relative;
   z-index: 1;
 }
@@ -496,7 +494,6 @@ header nav ul li a:hover {
   background-color: #fff;
   padding: 1rem;
   transition: all 0.3s ease-in-out;
-  flex: 1 1 calc(25% - 1rem);
   max-width: 200px;
   text-align: center;
 }
@@ -514,7 +511,7 @@ header nav ul li a:hover {
   margin-top: 0.5rem;
   font-size: 1rem;
   font-weight: bold;
-  color: #333;
+  color: #e2625c;
 }
 
 footer {
@@ -609,5 +606,5 @@ footer a:hover {
   margin-top: 0.5rem;
   font-size: 1rem;
   font-weight: bold;
-  color: #333;
+  color: #e2625c;
 }/*# sourceMappingURL=styles.css.map */
