@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab04</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+    <!-- header -->
+    <header class="bg-indigo-950 text-white p-4">
+        <div class="flex justify-between ">
+          <h1 class="text-2xl font-bold">
+            <span class="text-yellow-500">Orange</span> News
+          </h1>
+          <nav >
+            <ul class="flex gap-6 text-lg">
+              <li><a href="#" class="hover:underline">Home</a></li>
+              <li><a href="#" class="hover:underline">Latest</a></li>
+              <li><a href="#" class="hover:underline">Scores</a></li>
+              <li><a href="#" class="hover:underline">Videos</a></li>
+              <li><a href="#" class="hover:underline">More</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      
+      <!-- main -->
+      <section class="p-6">
+    <div class="rounded-lg overflow-hidden">
+        <img src="/lab04/images/campus.jpg" alt="Campus" class="object-cover h-80 w-full">
+        <div class="bg-gray-900 text-white px-4 py-6 w-full text-sm">
+          <h2 class="text-2xl font-bold">Will the Snow Ever Thaw?</h2>
+          <p class="text-lg mt-2">Get the latest scoop on the weather and everything that affects the jet stream.</p>
+        </div>
+    </div>
+      </section>
+
+      <!-- stories -->
+      <section class="py-8 bg-gray-100">
+        <div class="container mx-auto">
+          <h3 class="text-2xl font-semibold mb-4">More Featured Stories</h3>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-white shadow rounded-lg p-4">
+              <img src="./images/graduates.jpg" alt="Graduation" class="rounded">
+              <h4 class="text-lg font-bold mt-2">Graduation 2025</h4>
+              <p class="text-sm">Invite your friends and family to join us in May.</p>
+            </div>
+            <div class="bg-white shadow rounded-lg p-4">
+              <img src="./images/runners.jpg" alt="Workplace" class="rounded">
+              <h4 class="text-lg font-bold mt-2">Workplace Run</h4>
+              <p class="text-sm">Run a 5k with your colleagues.</p>
+            </div>
+            <div class="bg-white shadow rounded-lg p-4">
+              <img src="./images/artshow.jpg" alt="Art Show" class="rounded">
+              <h4 class="text-lg font-bold mt-2">Art Show</h4>
+              <p class="text-sm">The best art of the year on display at Schaffer.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- headlines & score-->
+      <section class="py-8">
+        <div class="container mx-auto grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Top Headlines</h3>
+            <div class="bg-white shadow p-4 rounded-lg mb-4">
+              <h4 class="font-bold">Player X Breaks Record</h4>
+              <p class="text-sm">The record-breaking performance stunned fans everywhere...</p>
+            </div>
+            <div class="bg-white shadow p-4 rounded-lg mb-4">
+              <h4 class="font-bold">Team Y Wins Championship</h4>
+              <p class="text-sm">An epic showdown with a historic victory...</p>
+            </div>
+            <div class="bg-white shadow p-4 rounded-lg mb-4">
+                <h4 class="font-bold">Athlete Z Announces Retirement</h4>
+                <p class="text-sm">Athlete Z's retirement shocked the sports world...</p>
+              </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Game Scores</h3>
+            <table class="w-full text-left">
+              <thead>
+                <tr>
+                  <th class="p-2">Game</th>
+                  <th class="p-2">Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b">
+                  <td class="p-2">Women's Hockey vs Miami</td>
+                  <td class="p-2">3 - 1</td>
+                </tr>
+                <tr class="border-b">
+                  <td class="p-2">Men's Lacrosse vs St Bonaventure</td>
+                  <td class="p-2">7 - 18</td>
+                </tr>
+                <tr>
+                  <td class="p-2">Men's Basketball vs Duke</td>
+                  <td class="p-2">98 - 75</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- newsletter -->
+      <section class="text-white p-6">
+        <div class=" bg-gray-900 w-full p-4 rounded-lg">
+          <h3 class="text-xl font-bold mb-2">Subscribe to Our Newsletter</h3>
+          <p class="mb-4">Stay updated with the latest news, scores, and exclusive content delivered straight to your inbox!</p>
+          <form class="flex">
+            <input type="email" placeholder="Enter your email" class="p-2 rounded-l-lg w-64">
+            <button class="bg-yellow-500 text-black px-4 rounded-r-lg">Subscribe</button>
+          </form>
+        </div>
+      </section>
+</body>
+</html>
