@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // Question 1
+        let myFavNumber = 12;
+        console.log("My favorite number is " + myFavNumber + ".");
+
+        // Question 2 (Colors Example)
+        let colors = ["red", "blue", "green", "yellow"];
+        console.log(colors[0]); // outputs red
+        console.log(colors[2]); // outputs green
+        colors.push("orange"); // adds item to end of array
+
+        // Question 2
+        let food = [" spaghetti", " brownies", " cheetos", " fam's potato casserole"];
+        console.log(food[1]); // outputs brownies
+        food.push(" cheeseburger");
+        console.log(food);
+
+        // Question 3
+        for (let i = 0; i < food.length; i++) {
+            console.log("Favorite Food " + (i + 1) + food[i]);
+        }
+
+
+        // Question 4
+        for (let i = 0; i < food.length; i++) {
+            if (i !== 1) {
+            console.log("Favorite Food " + (i + 1) + ": " + food[i]);
+            }
+        }
+
+        // Question 5
+        let book = {
+    title: "The Land of Stories",
+    author: "Chris Colfer",
+    yearPublished: 2012,
+    isAvailable: true
+    };
+
+    console.log(book["title"] + " " + book["author"]);
+
+    if (book.isAvailable === true) {  
+        console.log("This book is available for checkout.");
+    } else {
+        console.log("Sorry, this book is currently checked out.");
+    }
+
+
+
+        // Question 6
+        let x = 2;
+        while (x <= 20) {
+        console.log(x);
+        x += 2;
+    }
+
+    // Question 7
+    let roll = Math.floor(Math.random() * 6) + 1;
+    console.log("You rolled a " + roll);
+
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

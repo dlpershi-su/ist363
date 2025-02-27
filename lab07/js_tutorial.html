@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Examples</title>
+    <!-- include an external file -->
+    <script src="example.js"></script>
+</head>
+<body>
+    <!-- this is how you include js internally -->
+    
+    <script>
+        let gpa = 3.4;
+        let messageDean = "You made the Dean's List!"
+        let messageLower = "You did not make the Dean's List."
+        if (gpa >= 3.5) {
+            console.log(messageDean);
+        } else if (gpa< 3.5) {
+            console.log(messageLower);
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+    <script>
+        // dog years
+        let dogAge = 14;
+        let type = "cat";
+        let petAge;       // saying I am going to use this variable later
+        if (type == "dog") {
+            let petAge = dogAge * 7;
+        } else if (type == "cat") {
+            petAge = dogAge * 4;
+        }
+        console.log(petAge);
+
+    </script>
+    
+    
+    
+    
+    
+    <script>
+        console.log("Hello World");  // comment in js
+        
+    
+        let firstName = "Dara";  // making a variable
+        let age = 20;
+        let isIschool = true;
+        console.log(firstName);
+        console.log(age);
+        console.log(isIschool);
+
+
+        // multiply
+        let x = 2*2034;
+        console.log(x);
+        console.log(1 == 2);
+        console.log(2<1 && 1<2); // && means and  F and T = false
+        console.log(2<1 || 1<2); // || means or   F or T = true
+        console.log(10 == 20 || 20 == 10)     //  F or F = false
+
+
+    </script>
+
+
+
+</body>
+</html>
