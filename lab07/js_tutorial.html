@@ -8,6 +8,93 @@
     <script src="example.js"></script>
 </head>
 <body>
+
+    <h2>Dog Age to Dog Years Calculator</h2>
+
+    <form id="dogYearsForm">
+        <p>Enter your dog's age (in human years):</p>
+        <input type="text" name="dogYears">
+    </form>
+    <button id="myButton1">Calculate</button>
+
+    <p id = "result"></p>
+
+    <script>
+        function dogYears1() {
+            let humanYears = document.getElementById('dogYearsForm').elements['dogYears'].value;
+            let dogAge = humanYears * 7;
+            document.getElementById('result').innerText = 'Your dog years is: ' + dogAge;
+        }
+        document.getElementById('myButton1').addEventListener('click', dogYears1);
+
+    </script>
+    
+    
+    <p id="pone" class="odd">one</p>
+    <p class="even">two</p>
+    <p class="odd">three</p>
+
+
+    <!-- form -->
+    <form id = "myForm">
+        <input type="text" name="fname" value="Dara">
+        <input type="text" name="lname" value="Pershing">
+        <input type="submit" value="send form">
+    </form>
+
+    <p>
+    <button id = "myButton">Sign Up</button>
+    </p>
+
+
+
+
+    <script>
+        // picking something by id and console logging
+        let picked = document.getElementById('pone');
+        console.log(picked);
+
+        // pick by class and tag => returns array
+        let oddTags = document.getElementsByClassName('odd');
+        for (i = 0; i < oddTags.length; i++) {
+            console.log(oddTags[i]);
+        }
+
+        console.log('Below is the log by tag name')
+
+        let pTags = document.getElementsByTagName('p');
+        for (i = 0; i < pTags.length; i++) {
+            console.log(pTags[i]);
+        }
+
+
+        // getting element value from a form
+        console.log(document.getElementById("myForm").elements[0].value);
+
+
+        // changing text and HTML in tags
+        document.getElementById('pone'),innerHTML = 'four'; // will return text & tags
+
+        // change form value
+        document.getElementById("myForm").elements[0].value = 'Natasha';
+
+        // change a style
+        document.getElementById('pone').style.color = "orange";
+        document.getElementById('pone').style.textDecoration = "underline";
+        document.getElementsByTagName('body')[0].style.backgroundColor = "pink";
+
+
+
+        document.getElementById('myButton').addEventListener('click', myFunction);
+
+        function myFunction () {
+            alert('Hello');
+        }
+
+    </script>
+
+
+
     <!-- this is how you include js internally -->
     
     <script>
@@ -22,10 +109,16 @@
     </script>
 
 
+    <script>
+        // dog years w/ function
+        function dogYears(years) {
+        return (years * 7);
+        }
 
+        let value = dogYears(14);
+        console.log("The dog age in human years is " + value)
 
-
-
+    </script>
 
 
 
@@ -33,13 +126,13 @@
         // dog years
         let dogAge = 14;
         let type = "cat";
-        let petAge;       // saying I am going to use this variable later
+        let humanYears;       // saying I am going to use this variable later
         if (type == "dog") {
-            let petAge = dogAge * 7;
+            let humanYears = dogAge * 7;
         } else if (type == "cat") {
-            petAge = dogAge * 4;
+            humanYears = dogAge * 4;
         }
-        console.log(petAge);
+        console.log(humanYears);
 
     </script>
     
