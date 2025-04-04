@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Box Office Hits & Showtimes</title>
+    <title>Movie & Theater Finder</title>
     <link rel="stylesheet" href="project2.css">
-    <script defer src="project2.js"></script>
 </head>
 <body>
     <header>
-        <h1>Box Office Hits & Showtimes</h1>
+        <h1>Movie & Theater Finder</h1>
+        <input type="text" id="search" placeholder="Search for a movie...">
+        <button onclick="searchMovies()">Search</button>
+        <input type="text" id="location" placeholder="Enter city or ZIP">
+        <button onclick="findTheaters()">Find Theaters</button>
     </header>
 
-    <section id="movies">
-        <h2>Trending Movies</h2>
+    <main>
+        <h2>Now Playing</h2>
         <div id="movie-list"></div>
-    </section>
 
-    <section id="theaters">
-        <h2>Find Theaters Near You</h2>
-        <input type="text" id="location" placeholder="Enter city or ZIP code">
-        <button onclick="findTheaters()">Search</button>
+        <h2>Theaters Near You</h2>
         <div id="theater-list"></div>
-    </section>
+    </main>
 
+    <script src="project2.js"></script>
 </body>
 </html>
+
+

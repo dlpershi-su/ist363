@@ -1,13 +1,16 @@
-const TMDB_API_KEY = "your_tmdb_api_key";
-const GOOGLE_PLACES_API_KEY = "your_google_places_api_key";
-const TMDB_URL = "https://api.themoviedb.org/3/movie/popular?api_key=" + TMDB_API_KEY;
-const GOOGLE_PLACES_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=";
+const TMDB_API_KEY = "87eac00fab4cdba39f47bbcc14670605";
+const TMDB_NOW_PLAYING_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${TMDB_API_KEY}&language=en-US&page=1`;
+const TMDB_SEARCH_URL = `https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&language=en-US&query=`;
 
+const FOURSQUARE_API_KEY = "fsq34LoLOQbGqKH52s4nmAyDA/6++N3S7VxFtSLSGV3s3q0=";
+const FOURSQUARE_URL = "https://api.foursquare.com/v3/places/search";
+
+// Load Now Playing Movies
 document.addEventListener("DOMContentLoaded", fetchMovies);
 
 async function fetchMovies() {
     try {
-        const response = await fetch(TMDB_URL);
+        const response = await fetch(TMDB_NOW_PLAYING_URL);
         const data = await response.json();
         displayMovies(data.results);
     } catch (error) {
@@ -15,11 +18,31 @@ async function fetchMovies() {
     }
 }
 
+// Search Movies
+async function searchMovies() {
+    const query = document.getElementById("search").value.trim();
+    if (!query) {
+        alert("Please enter a movie name!");
+        return;
+    }
+
+    try {
+        const response = await fetch(`${TMDB_SEARCH_URL}${query}`);
+        const data = await response.json();
+        displayMovies(data.results);
+    } catch (error) {
+        console.error("Error searching movies:", error);
+    }
+}
+
+// Display Movies
 function displayMovies(movies) {
     const movieList = document.getElementById("movie-list");
     movieList.innerHTML = "";
 
     movies.forEach(movie => {
+        if (!movie.poster_path) return;
+
         const movieCard = document.createElement("div");
         movieCard.classList.add("movie-card");
         movieCard.innerHTML = `
@@ -31,6 +54,7 @@ function displayMovies(movies) {
     });
 }
 
+// Find Theaters Using Foursquare
 async function findTheaters() {
     const location = document.getElementById("location").value.trim();
     if (!location) {
@@ -39,7 +63,13 @@ async function findTheaters() {
     }
 
     try {
-        const response = await fetch(`${GOOGLE_PLACES_URL}movie+theaters+in+${location}&key=${GOOGLE_PLACES_API_KEY}`);
+        const response = await fetch(`${FOURSQUARE_URL}?query=movie theater&near=${location}&limit=10`, {
+            headers: {
+                "Authorization": FOURSQUARE_API_KEY,
+                "Accept": "application/json"
+            }
+        });
+
         const data = await response.json();
         displayTheaters(data.results);
     } catch (error) {
@@ -47,6 +77,7 @@ async function findTheaters() {
     }
 }
 
+// Display Theaters
 function displayTheaters(theaters) {
     const theaterList = document.getElementById("theater-list");
     theaterList.innerHTML = "";
@@ -56,8 +87,9 @@ function displayTheaters(theaters) {
         theaterCard.classList.add("theater-card");
         theaterCard.innerHTML = `
             <h3>${theater.name}</h3>
-            <p>${theater.formatted_address}</p>
+            <p>${theater.location.formatted_address}</p>
         `;
         theaterList.appendChild(theaterCard);
     });
 }
+
