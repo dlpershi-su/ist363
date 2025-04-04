@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Deals Finder</title>
+    <title>Box Office Hits & Showtimes</title>
     <link rel="stylesheet" href="project2.css">
     <script defer src="project2.js"></script>
 </head>
 <body>
     <header>
-        <h1>Best Video Game Deals</h1>
-        <input type="text" id="searchBox" placeholder="Search for a game...">
-        <button onclick="searchDeals()">Search</button>
+        <h1>Box Office Hits & Showtimes</h1>
     </header>
-    
-    <main id="dealsContainer"></main>
-    
-    <footer>
-        <p>Powered by CheapShark API & RAWG API</p>
-    </footer>
+
+    <section id="movies">
+        <h2>Trending Movies</h2>
+        <div id="movie-list"></div>
+    </section>
+
+    <section id="theaters">
+        <h2>Find Theaters Near You</h2>
+        <input type="text" id="location" placeholder="Enter city or ZIP code">
+        <button onclick="findTheaters()">Search</button>
+        <div id="theater-list"></div>
+    </section>
+
 </body>
 </html>
