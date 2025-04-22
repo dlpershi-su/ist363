@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Otto's Kitchen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Agu+Display&family=Modak&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Agu+Display&family=Modak&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family:"Quicksand", sans-serif;; background: #fff8f0; color: #333; }
+    header { background-color: #f57c00; color: white; padding: 1rem; text-align: center; }
+    h1 {margin: 0;font-family: 'Modak', normal;font-size: 3rem; font-weight: 400; font-style: normal;}
+    nav { margin-top: 1rem; text-align: center; }
+    nav a { margin: 0 1rem; text-decoration: none; color: #f57c00; font-weight: bold; }
+    .container { padding: 2rem; max-width: 1200px; margin: auto; }
+    .search-bar { margin-bottom: 2rem;}
+    .search-bar input { width: 100%; padding: 0.5rem;}
+    .recipes { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+    .recipe-card { background: white; border-radius: 8px; padding: 1rem;  }
+    .recipe-card img { width: 100%; border-radius: 8px; }
+    .recipe-card h3 { margin: 1rem 0 0.5rem; }
+    .tags { margin-top: 0.5rem; font-size: 0.9rem; color: #777; }
+    .form-container { background: white; padding: 2rem; border-radius: 8px;}
+    form input, form textarea, form select { width: 100%; margin-bottom: 1rem; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; }
+    button { background-color: #f57c00; color: white; padding: 0.75rem 2rem; border: none; border-radius: 4px; cursor: pointer; }
+    button:hover { background-color: #e65100; }
+    footer { margin-top: 3rem; text-align: center; padding: 1rem; font-size: 0.8rem; color: #aaa; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Otto's Kitchen</h1>
+    <p>Student Recipes for the Real World</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#recipes">Recipes</a>
+    <a href="#submit">Submit</a>
+    <a href="#login">Login</a>
+  </nav>
+
+  <div class="container" id="home">
+    <div class="search-bar">
+      <input type="text" placeholder="Search for recipes...">
+    </div>
+
+    <div class="recipes">
+      <div class="recipe-card">
+        <img src="https://via.placeholder.com/250" alt="Recipe">
+        <h3>Dorm Chili</h3>
+        <p>Simple 3-ingredient chili for tight budgets.</p>
+        <div class="tags">#microwave #budget #easy</div>
+      </div>
+
+      <div class="recipe-card">
+        <img src="https://via.placeholder.com/250" alt="Recipe">
+        <h3>Microwave Mac & Cheese</h3>
+        <p>Creamy and fast using just a mug.</p>
+        <div class="tags">#5ingredients #dormlife</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="submit">
+    <h2>Submit Your Recipe</h2>
+    <div class="form-container">
+      <form>
+        <input type="text" placeholder="Recipe Title">
+        <textarea rows="4" placeholder="Ingredients (one per line)"></textarea>
+        <textarea rows="6" placeholder="Instructions"></textarea>
+        <input type="text" placeholder="Tags (comma-separated)">
+        <input type="file">
+        <button type="submit">Submit Recipe</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="container" id="login">
+    <h2>Login / Sign Up</h2>
+    <div class="form-container">
+      <form>
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button type="submit">Log In</button>
+        <p>or <a href="#">Sign Up</a></p>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Otto's Kitchen | Built by a Student, for Students</p>
+  </footer>
+
+</body>
+</html>
