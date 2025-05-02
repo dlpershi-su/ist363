@@ -1,4 +1,3 @@
-// src/components/SubmitPage.js
 import React, { useState } from 'react';
 
 function SubmitPage({ addRecipe }) {
@@ -103,6 +102,8 @@ function SubmitPage({ addRecipe }) {
 }
 
 export default SubmitPage;
+
+
 
 
 

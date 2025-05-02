@@ -1,23 +1,60 @@
-// src/components/RecipesPage.js
 import React, { useState, useEffect } from 'react';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
-import { app } from '../firebase'; // Import firebase app from the file where it is initialized
+import { getFirestore, collection, getDocs, setDoc, doc, getDoc } from 'firebase/firestore';
+import { app, auth } from '../firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 const db = getFirestore(app);
 
 function RecipesPage() {
   const [recipes, setRecipes] = useState([]);
   const [selectedTag, setSelectedTag] = useState(null);
+  const [user, setUser] = useState(null);
+  const [likedRecipes, setLikedRecipes] = useState([]);
 
-  // Fetch recipes from Firestore when the page loads
   useEffect(() => {
     const fetchRecipes = async () => {
       const querySnapshot = await getDocs(collection(db, 'recipes'));
-      const recipesData = querySnapshot.docs.map((doc) => doc.data());
+      const recipesData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
       setRecipes(recipesData);
     };
+
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      if (firebaseUser) {
+        setUser(firebaseUser);
+        fetchLikedRecipes(firebaseUser.uid);
+      } else {
+        setUser(null);
+        setLikedRecipes([]);
+      }
+    });
+
     fetchRecipes();
+    return () => unsubscribe();
   }, []);
+
+  const fetchLikedRecipes = async (userId) => {
+    const userDocRef = doc(db, 'users', userId);
+    const userSnapshot = await getDoc(userDocRef);
+    if (userSnapshot.exists()) {
+      setLikedRecipes(userSnapshot.data().likedRecipes || []);
+    }
+  };
+
+  const handleLikeRecipe = async (recipeId) => {
+    if (!user) {
+      alert("Please log in to like a recipe");
+      return;
+    }
+
+    const updatedLikes = likedRecipes.includes(recipeId)
+      ? likedRecipes.filter((id) => id !== recipeId) // Unlike
+      : [...likedRecipes, recipeId]; // Like
+
+    setLikedRecipes(updatedLikes);
+
+    const userDocRef = doc(db, 'users', user.uid);
+    await setDoc(userDocRef, { likedRecipes: updatedLikes }, { merge: true });
+  };
 
   const handleTagClick = (tag) => {
     setSelectedTag(tag);
@@ -34,15 +71,17 @@ function RecipesPage() {
   return (
     <div>
       <h2>All Recipes</h2>
+
       {selectedTag && (
         <div style={{ marginBottom: '1rem' }}>
           <strong>Filtering by tag:</strong> {selectedTag}{' '}
           <button onClick={clearFilter}>Clear Filter</button>
         </div>
       )}
+
       <div className="recipes">
-        {filteredRecipes.map((recipe, index) => (
-          <div key={index} className="recipe-card">
+        {filteredRecipes.map((recipe) => (
+          <div key={recipe.id} className="recipe-card">
             {recipe.imageUrl && (
               <img src={recipe.imageUrl} alt={recipe.recipeName} />
             )}
@@ -51,6 +90,7 @@ function RecipesPage() {
             <p>{recipe.ingredients}</p>
             <h4>Instructions:</h4>
             <p>{recipe.instructions}</p>
+
             {recipe.tags && recipe.tags.length > 0 && (
               <div className="tags">
                 <strong>Tags:</strong>{' '}
@@ -74,8 +114,25 @@ function RecipesPage() {
                 ))}
               </div>
             )}
+
+            <button
+              onClick={() => handleLikeRecipe(recipe.id)}
+              style={{
+                fontSize: '1.5rem',
+                border: 'none',
+                background: 'none',
+                cursor: user ? 'pointer' : 'not-allowed',
+                transition: 'color 0.3s ease',
+              }}
+              aria-label={likedRecipes.includes(recipe.id) ? 'Unlike this recipe' : 'Like this recipe'}
+              disabled={!user}
+              title={!user ? 'Log in to like recipes' : ''}
+            >
+              {likedRecipes.includes(recipe.id) ? '✔️' : '❤️'}
+            </button>
           </div>
         ))}
+
         {filteredRecipes.length === 0 && (
           <p>No recipes found for tag: {selectedTag}</p>
         )}
@@ -85,6 +142,12 @@ function RecipesPage() {
 }
 
 export default RecipesPage;
+
+
+
+
+
+
 
 
 
