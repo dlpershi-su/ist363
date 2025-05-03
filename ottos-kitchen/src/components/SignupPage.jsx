@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase'; // Adjust if your path is different
-import { useNavigate } from 'react-router-dom'; // Step 5
+import { auth } from '../firebase'; 
+import { useNavigate } from 'react-router-dom';
 
 function SignupPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
 
-  const navigate = useNavigate(); // Step 5
+  const navigate = useNavigate(); 
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -21,9 +21,9 @@ function SignupPage() {
       
       await createUserWithEmailAndPassword(auth, email, password);
       setError(null); // Clear any previous errors
-      navigate('/recipes'); // Step 5 - redirect after signup
+      navigate('/recipes'); 
     } catch (err) {
-      // Handle Firebase-specific error messages
+
       if (err.code === 'auth/email-already-in-use') {
         setError("Email is already in use.");
       } else if (err.code === 'auth/invalid-email') {

@@ -6,7 +6,7 @@ function SubmitPage({ addRecipe }) {
   const [instructions, setInstructions] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [tags, setTags] = useState('');
-  const [status, setStatus] = useState(null); // 'success' | 'error' | null
+  const [status, setStatus] = useState(null); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ function SubmitPage({ addRecipe }) {
         .split(',')
         .map(tag => tag.trim())
         .filter(tag => tag !== ''),
-      createdAt: new Date() // Optional: timestamp
+      createdAt: new Date() 
     };
 
     console.log('Submitting recipe:', newRecipe);

@@ -47,8 +47,8 @@ function RecipesPage() {
     }
 
     const updatedLikes = likedRecipes.includes(recipeId)
-      ? likedRecipes.filter((id) => id !== recipeId) // Unlike
-      : [...likedRecipes, recipeId]; // Like
+      ? likedRecipes.filter((id) => id !== recipeId) 
+      : [...likedRecipes, recipeId]; 
 
     setLikedRecipes(updatedLikes);
 

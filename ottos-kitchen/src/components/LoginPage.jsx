@@ -1,33 +1,33 @@
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase'; // Adjust if needed
+import { auth } from '../firebase'; 
 import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false); // To manage loading state
+  const [isLoading, setIsLoading] = useState(false); 
 
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     
-    // Basic frontend validation (optional)
+
     if (!email || !password) {
       setError("Please fill in both fields.");
       return;
     }
 
-    setIsLoading(true); // Start loading
+    setIsLoading(true); 
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      setError(null); // Reset error on successful login
-      navigate('/recipes'); // Redirect after successful login
+      setError(null); 
+      navigate('/recipes'); 
     } catch (err) {
-      // Handle Firebase specific errors
+    
       if (err.code === 'auth/user-not-found') {
         setError("User not found. Please check your email.");
       } else if (err.code === 'auth/wrong-password') {
@@ -36,7 +36,7 @@ function LoginPage() {
         setError("An error occurred. Please try again.");
       }
     } finally {
-      setIsLoading(false); // End loading
+      setIsLoading(false);
     }
   };
 
@@ -64,8 +64,8 @@ function LoginPage() {
 
         <button type="submit" disabled={isLoading}>Login</button>
 
-        {isLoading && <p>Loading...</p>} {/* Display loading message */}
-        {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error message */}
+        {isLoading && <p>Loading...</p>} 
+        {error && <p style={{ color: 'red' }}>{error}</p>} 
       </form>
     </div>
   );

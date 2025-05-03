@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { collection, addDoc } from "firebase/firestore";
-import { db, auth } from "./firebase"; // Import auth
-import { onAuthStateChanged, signOut } from "firebase/auth"; // Import auth functions
+import { db, auth } from "./firebase"; 
+import { onAuthStateChanged, signOut } from "firebase/auth"; 
 
+import HomePage from "./components/HomePage";
 import RecipesPage from "./components/RecipesPage";
 import SubmitPage from "./components/SubmitPage";
 import LoginPage from "./components/LoginPage";
-import SignupPage from "./components/SignupPage"; // Import the SignupPage
-import LikedRecipesPage from "./components/LikedRecipesPage"; // Import LikedRecipesPage
+import SignupPage from "./components/SignupPage";
+import LikedRecipesPage from "./components/LikedRecipesPage"; 
 import './App.css';
 
 function App() {
@@ -52,7 +53,7 @@ function App() {
             <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/recipes">Recipes</Link></li>
-              <li><Link to="/liked-recipes">Liked Recipes</Link></li> {/* Liked Recipes Link */}
+              <li><Link to="/liked-recipes">Liked Recipes</Link></li>
               <li><Link to="/submit">Submit Recipe</Link></li>
               {/* Show login/signup if no user, show logout if user exists */}
               {user ? (
@@ -63,7 +64,7 @@ function App() {
               ) : (
                 <>
                   <li><Link to="/login">Login</Link></li>
-                  <li><Link to="/signup">Sign Up</Link></li> {/* Added Signup Link */}
+                  <li><Link to="/signup">Sign Up</Link></li> 
                 </>
               )}
             </ul>
@@ -72,12 +73,12 @@ function App() {
 
         <main>
           <Routes>
-            <Route path="/" element={<h2>Welcome to Otto's Kitchen!</h2>} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/recipes" element={<RecipesPage />} />
-            <Route path="/liked-recipes" element={<LikedRecipesPage />} /> {/* Added Liked Recipes Route */}
+            <Route path="/liked-recipes" element={<LikedRecipesPage />} /> 
             <Route path="/submit" element={<SubmitPage addRecipe={addRecipe} />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignupPage />} /> {/* Added Signup Route */}
+            <Route path="/signup" element={<SignupPage />} /> 
           </Routes>
         </main>
 

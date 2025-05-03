@@ -1,12 +1,11 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
 body {
   font-family: "Quicksand", sans-serif;
   background: #fff8f0;
   color: #333;
-  min-height: 100vh; /* Ensures body occupies the full height */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  width:100%;
 }
 
 header {
@@ -14,6 +13,7 @@ header {
   color: white;
   padding: 1rem;
   text-align: center;
+  width: 100%;
 }
 
 h1 {
@@ -26,6 +26,7 @@ h1 {
 nav {
   margin-top: 1rem;
   text-align: center;
+  width: 100%;
 }
 
 nav a {
@@ -37,7 +38,7 @@ nav a {
 
 .container {
   padding: 2rem;
-  max-width: 1200px;
+  
   margin: auto;
 }
 
@@ -66,17 +67,14 @@ nav a {
   margin-top: 1rem;
 }
 
-/* Home page styles */
 .home-container {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   padding: 20px;
-  flex-grow: 1; 
-  width:100%
+  width: 100%;
 }
+
 
 .recipe-card h3 {
   margin: 1rem 0 0.5rem;

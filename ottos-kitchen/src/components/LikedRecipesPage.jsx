@@ -39,7 +39,7 @@ function LikedRecipesPage() {
         })
       );
 
-      setLikedRecipes(recipeData.filter(Boolean)); // Remove nulls
+      setLikedRecipes(recipeData.filter(Boolean)); 
     }
   };
 
